@@ -1,0 +1,416 @@
+
+/* General Reset */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f1f5f9;
+    color: #1e293b;
+    line-height: 1.6;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* Main Layout */
+
+.page-container {
+    width: min(100% - 2rem, 750px);
+    margin-inline: auto;
+    padding-block: 3rem;
+}
+
+.registration-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgb(0 0 0 / 8%);
+}
+
+/* Header */
+
+.form-header {
+    text-align: center;
+    margin-block-end: 2rem;
+}
+
+.eyebrow {
+    color: #4f46e5;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.form-header h1 {
+    margin-block: 0.5rem;
+    font-size: clamp(1.8rem, 5vw, 2.5rem);
+}
+
+.form-header p:last-child {
+    color: #64748b;
+}
+
+/* Form Sections */
+
+.form-section {
+    padding-block: 1.5rem;
+    border-block-end: 1px solid #e2e8f0;
+}
+
+.form-section h2 {
+    margin-block-end: 1.2rem;
+    font-size: 1.2rem;
+}
+
+.form-group {
+    display: grid;
+    gap: 0.4rem;
+    margin-block-end: 1.2rem;
+}
+
+.form-group label,
+.checkbox-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea,
+.tab-panel select,
+.tab-panel textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background-color: white;
+    color: #1e293b;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus,
+.tab-panel select:focus,
+.tab-panel textarea:focus {
+    border-color: #4f46e5;
+    box-shadow: 0 0 0 3px rgb(79 70 229 / 15%);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Error and Success Messages */
+
+.error-message {
+    min-height: 1.2rem;
+    color: #dc2626;
+    font-size: 0.8rem;
+}
+
+.input-error {
+    border-color: #dc2626 !important;
+}
+
+.input-success {
+    border-color: #16a34a !important;
+}
+
+.success-message {
+    margin-block-start: 1rem;
+    padding: 1rem;
+    background-color: #dcfce7;
+    border: 1px solid #86efac;
+    border-radius: 8px;
+    color: #166534;
+}
+
+/* Buttons */
+
+.button {
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.button:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.button--primary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.button--primary:hover:not(:disabled) {
+    background-color: #3730a3;
+}
+
+.button--secondary {
+    background-color: #e2e8f0;
+    color: #1e293b;
+}
+
+.button--secondary:hover:not(:disabled) {
+    background-color: #cbd5e1;
+}
+
+button:disabled {
+    background-color: #94a3b8;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Password Strength */
+
+.password-strength {
+    display: grid;
+    gap: 0.4rem;
+}
+
+.strength-track {
+    height: 7px;
+    overflow: hidden;
+    background-color: #e2e8f0;
+    border-radius: 10px;
+}
+
+#strength-fill {
+    display: block;
+    width: 0;
+    height: 100%;
+    background-color: #dc2626;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+#strength-text {
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+/* Skills List */
+
+.selected-skills {
+    margin-block-start: 1rem;
+}
+
+.selected-skills h3 {
+    margin-block-end: 0.7rem;
+    font-size: 1rem;
+}
+
+.skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    list-style: none;
+}
+
+.skill-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.4rem 0.7rem;
+    background-color: #eef2ff;
+    color: #3730a3;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.remove-skill {
+    border: none;
+    background: transparent;
+    color: #991b1b;
+    font-weight: bold;
+}
+
+.empty-skills {
+    color: #64748b;
+    font-size: 0.85rem;
+}
+
+/* Tabs */
+
+.tab-buttons {
+    display: flex;
+    gap: 0.5rem;
+    margin-block-end: 1rem;
+    border-block-end: 1px solid #e2e8f0;
+}
+
+.tab-button {
+    padding: 0.7rem 1rem;
+    border: none;
+    background: transparent;
+    color: #64748b;
+    font-weight: bold;
+}
+
+.tab-button.active {
+    color: #4f46e5;
+    border-block-end: 3px solid #4f46e5;
+}
+
+.tab-panel {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Character Counter */
+
+.character-info {
+    display: flex;
+    justify-content: flex-end;
+    color: #64748b;
+    font-size: 0.8rem;
+}
+
+/* Checkbox */
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.checkbox-label input {
+    width: 18px;
+    height: 18px;
+    accent-color: #4f46e5;
+}
+
+/* Form Actions */
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding-block-start: 1.5rem;
+}
+
+/* Modal */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: grid;
+    place-items: center;
+    padding: 1rem;
+    background-color: rgb(15 23 42 / 65%);
+}
+
+.modal {
+    width: min(100%, 420px);
+    padding: 2rem;
+    background-color: white;
+    border-radius: 16px;
+    text-align: center;
+    box-shadow: 0 15px 40px rgb(0 0 0 / 20%);
+    animation: modal-enter 0.25s ease;
+}
+
+.modal h2 {
+    margin-block-end: 0.8rem;
+}
+
+.modal p {
+    margin-block-end: 1.5rem;
+    color: #64748b;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+@keyframes modal-enter {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+
+@media (max-width: 600px) {
+
+    .page-container {
+        width: min(100% - 1rem, 750px);
+        padding-block: 1rem;
+    }
+
+    .registration-card {
+        padding: 1.2rem;
+    }
+
+    .form-actions {
+        flex-direction: column;
+    }
+
+    .form-actions button {
+        width: 100%;
+    }
+}
+
+/* Keyboard Focus */
+
+:where(button, input, select, textarea):focus-visible {
+    outline: 3px solid #06b6d4;
+    outline-offset: 3px;
+}
+
+/* Reduced Motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+#notification {
+    position: fixed;
+    inset-block-end: 20px;
+    inset-inline-end: 20px;
+    z-index: 2000;
+    max-width: min(90%, 350px);
+    padding: 1rem 1.5rem;
+    background-color: #1e293b;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 5px 20px rgb(0 0 0 / 20%);
+}

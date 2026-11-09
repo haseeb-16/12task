@@ -1,0 +1,305 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Day 12 - Interactive Registration Form</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <main class="page-container">
+
+        <section class="registration-card">
+
+            <header class="form-header">
+                <p class="eyebrow">DAY 12 JAVASCRIPT PROJECT</p>
+                <h1>Intern Registration</h1>
+                <p>Complete your information to register for the internship.</p>
+            </header>
+
+            <!-- Registration Form -->
+            <form id="registration-form" novalidate>
+
+                <!-- Personal Information -->
+                <section class="form-section">
+
+                    <h2>Personal Information</h2>
+
+                    <div class="form-group">
+                        <label for="full-name">Full Name *</label>
+
+                        <input
+                            type="text"
+                            id="full-name"
+                            name="fullName"
+                            placeholder="Enter your full name"
+                            required
+                            minlength="3"
+                            data-validation="name"
+                        >
+
+                        <small class="error-message" id="name-error"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@email.com"
+                            required
+                            data-validation="email"
+                        >
+
+                        <small class="error-message" id="email-error"></small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">Phone Number *</label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="03001234567"
+                            required
+                            pattern="[0-9]{11}"
+                            data-validation="phone"
+                        >
+
+                        <small class="error-message" id="phone-error"></small>
+                    </div>
+
+                </section>
+
+                <!-- Account Information -->
+                <section class="form-section">
+
+                    <h2>Account Information</h2>
+
+                    <div class="form-group">
+                        <label for="password">Password *</label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Create a password"
+                            required
+                            minlength="8"
+                            data-validation="password"
+                        >
+
+                        <small class="error-message" id="password-error"></small>
+
+                        <div class="password-strength">
+                            <div class="strength-track">
+                                <span id="strength-fill"></span>
+                            </div>
+
+                            <small id="strength-text">Password strength: Not entered</small>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password *</label>
+
+                        <input
+                            type="password"
+                            id="confirm-password"
+                            name="confirmPassword"
+                            placeholder="Confirm your password"
+                            required
+                            data-validation="confirm-password"
+                        >
+
+                        <small class="error-message" id="confirm-password-error"></small>
+                    </div>
+
+                </section>
+
+                <!-- Skills -->
+                <section class="form-section">
+
+                    <h2>Skills and Interests</h2>
+
+                    <div class="form-group">
+
+                        <label for="skill-select">Select Your Skills</label>
+
+                        <select id="skill-select">
+                            <option value="">Choose a skill</option>
+                            <option value="HTML">HTML</option>
+                            <option value="CSS">CSS</option>
+                            <option value="JavaScript">JavaScript</option>
+                            <option value="Python">Python</option>
+                            <option value="SQL">SQL</option>
+                            <option value="Git">Git</option>
+                        </select>
+
+                        <button
+                            type="button"
+                            class="button button--secondary"
+                            id="add-skill"
+                        >
+                            Add Skill
+                        </button>
+
+                    </div>
+
+                    <div class="selected-skills">
+                        <h3>Selected Skills</h3>
+
+                        <ul id="skills-list" class="skills-list">
+                            <li class="empty-skills">No skills selected yet.</li>
+                        </ul>
+                    </div>
+
+                </section>
+
+                <!-- Additional Information Tabs -->
+                <section class="form-section">
+
+                    <h2>Additional Information</h2>
+
+                    <div class="tabs" data-component="tabs">
+
+                        <div class="tab-buttons">
+                            <button
+                                type="button"
+                                class="tab-button active"
+                                data-tab="education"
+                            >
+                                Education
+                            </button>
+
+                            <button
+                                type="button"
+                                class="tab-button"
+                                data-tab="experience"
+                            >
+                                Experience
+                            </button>
+                        </div>
+
+                        <div class="tab-panel" id="education">
+                            <label for="qualification">Qualification</label>
+
+                            <select id="qualification" name="qualification">
+                                <option value="">Select qualification</option>
+                                <option value="BS Computer Science">BS Computer Science</option>
+                                <option value="BS Software Engineering">BS Software Engineering</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="tab-panel hidden" id="experience">
+                            <label for="experience-details">Previous Experience</label>
+
+                            <textarea
+                                id="experience-details"
+                                name="experience"
+                                rows="3"
+                                placeholder="Describe your previous experience..."
+                            ></textarea>
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- Message -->
+                <section class="form-section">
+
+                    <h2>Additional Message</h2>
+
+                    <div class="form-group">
+
+                        <label for="message">Why do you want to join? *</label>
+
+                        <textarea
+                            id="message"
+                            name="message"
+                            rows="5"
+                            maxlength="300"
+                            minlength="10"
+                            placeholder="Write your reason..."
+                            required
+                        ></textarea>
+
+                        <div class="character-info">
+                            <small id="character-count">0 / 300 characters</small>
+                        </div>
+
+                        <small class="error-message" id="message-error"></small>
+
+                    </div>
+
+                </section>
+
+                <!-- Agreement -->
+                <section class="form-section">
+
+                    <label class="checkbox-label">
+                        <input
+                            type="checkbox"
+                            id="agreement"
+                            name="agreement"
+                            required
+                        >
+
+                        I confirm that the information provided is correct.
+                    </label>
+
+                    <small class="error-message" id="agreement-error"></small>
+
+                </section>
+
+                <!-- Form Actions -->
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        id="submit-button"
+                        class="button button--primary"
+                        disabled
+                    >
+                        Submit Registration
+                    </button>
+
+                    <button
+                        type="button"
+                        id="reset-button"
+                        class="button button--secondary"
+                    >
+                        Reset Form
+                    </button>
+
+                </div>
+
+                <!-- Success Message -->
+                <div
+                    id="success-message"
+                    class="success-message hidden"
+                    role="status"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
